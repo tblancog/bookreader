@@ -7,17 +7,18 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class PageTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Test page shows "Please upload a pdf file".
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testShowsUploadFilePage()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->visit('/')
+            ->see('Please upload a pdf file')
+            ->dontSee('Not Found')
+            ->dontSee('Error');
     }
 }
