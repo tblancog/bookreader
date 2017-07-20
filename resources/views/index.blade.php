@@ -40,7 +40,7 @@
           </p>
         </form>
       </div>
-      {{ dump($result) }}
+      {{-- {{ dump($result) }} --}}
       {{-- @if($result->any())
         <div class="content">
           <pre>
