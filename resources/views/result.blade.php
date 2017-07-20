@@ -24,7 +24,11 @@
           @foreach ($result as $key => $value)
             <tr>
               <td>{{ $key }}</td>
-              <td>{{ $value }}</td>
+              <td>{{ $value }}
+                @if(\App\Repositories\NumberRepository::isPrime($value))
+                  <span class="label label-default">prime</span>
+                @endif
+              </td>
             </tr>
           @endforeach
         @endif
