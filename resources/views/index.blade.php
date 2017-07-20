@@ -17,14 +17,15 @@
         <h1>Challenge One</h1>
         <p>Please upload a pdf file to find out how many words it has</p>
         <p><small><i>max filesize: 1MB</i></small></p>
-        <form class="form-horizontal" action="/upload" method="post">
+        <form class="form-horizontal" action="/upload" method="post" enctype="multipart/form-data">
+          {{ csrf_field() }}
           <p>
-            <input type="file"/>
+            <input type="file" name="file"/>
           </p>
           <p>
             <button type="submit" class="btn btn-default btn-primary">Submit »</button>
           </p>
-      </form>
+        </form>
       </div>
     </div> <!-- /container -->
   </body>

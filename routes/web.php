@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::post('/upload', 'PdfController@upload');
