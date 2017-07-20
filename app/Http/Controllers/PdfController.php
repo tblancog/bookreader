@@ -34,8 +34,12 @@ class PdfController extends Controller
      */
     public function upload(Request $request)
     {
-        dd($request->all());
-        return response()->redirect('/');
+      $this->validate($request, [
+        'file' => 'required|file|
+                   mimetypes:application/pdf,application/x-pdf|
+                   min:1|max:1024'
+      ]);
+      $file = $request->file('file');
     }
 
     /**

@@ -17,6 +17,19 @@
         <h1>Challenge One</h1>
         <p>Please upload a pdf file to find out how many words it has</p>
         <p><small><i>max filesize: 1MB</i></small></p>
+
+        <div class="row">
+          @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+        </div>
+
         <form class="form-horizontal" action="/upload" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <p>
