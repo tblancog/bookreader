@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Repositories\PdfRepository;
 class PdfController extends Controller
 {
+    private $repo;
+
+    public function __construct(PdfRepository $pdf){
+      $this->repo = $pdf;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,9 +42,12 @@ class PdfController extends Controller
       $this->validate($request, [
         'file' => 'required|file|
                    mimetypes:application/pdf,application/x-pdf|
+                   mimes:pdf|
                    min:1|max:1024'
       ]);
       $file = $request->file('file');
+      $this->repo->storeFile( $file );
+      // $this->repo->countWords( $file );
     }
 
     /**

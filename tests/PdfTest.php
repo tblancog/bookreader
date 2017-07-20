@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use  \Spatie\PdfToText\Pdf as ReadPdf;
+use \Spatie\PdfToText\Pdf as ReadPdf;
 
 class PageTest extends TestCase
 {
