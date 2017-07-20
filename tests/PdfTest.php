@@ -54,6 +54,7 @@ class PageTest extends TestCase
 
       $this->assertInternalType('string', $any_word);
       $this->assertInternalType('integer', $any_rep);
-
     }
+
+    
 }

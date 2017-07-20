@@ -13,5 +13,5 @@
 
 Route::get('/', function () {
     return view('index');
-});
-Route::post('/upload', 'PdfController@upload');
+})->name('index');
+Route::post('/upload', 'PdfController@upload')->name('upload');

@@ -11,29 +11,38 @@
   <body>
 
     <div class="container">
-      <h1>Results</h1>
-      <table class="table" style="max-width: 960px">
-      <thead>
-        <tr>
-          <th>Word</th>
-          <th>Times it appear</th>
-        </tr>
-      </thead>
-      <tbody>
-        @if($result)
-          @foreach ($result as $key => $value)
+      <div class="row">
+        <h1>Results</h1>
+        <div class="float-right">
+          <a href="{{ route('index') }}" class="btn btn-primary btn-md"> << Go Back</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <table class="table" style="max-width: 960px">
+          <thead>
             <tr>
-              <td>{{ $key }}</td>
-              <td>{{ $value }}
-                @if(\App\Repositories\NumberRepository::isPrime($value))
-                  <span class="label label-default">prime</span>
-                @endif
-              </td>
+              <th>Word</th>
+              <th>Times it appear</th>
             </tr>
-          @endforeach
-        @endif
-      </tbody>
-    </table>
+          </thead>
+          <tbody>
+            @if($result)
+              @foreach ($result as $key => $value)
+                <tr>
+                  <td>{{ $key }}</td>
+                  <td>{{ $value }}
+                    {{-- Check wether is a prime number or not --}}
+                    @if(\App\Repositories\NumberRepository::isPrime($value))
+                      <span class="label label-primary">prime</span>
+                    @endif
+                  </td>
+                </tr>
+              @endforeach
+            @endif
+          </tbody>
+        </table>
+      </div>
     </div> <!-- /container -->
   </body>
 </html>

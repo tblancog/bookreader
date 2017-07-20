@@ -47,7 +47,6 @@ class PdfController extends Controller
       ]);
       $file = $request->file('file');
       $result = $this->repo->handle( $file );
-      // return redirect('/')->with('result', $result);
       return view('result', compact('result'));
     }
 

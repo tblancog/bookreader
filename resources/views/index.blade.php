@@ -40,16 +40,6 @@
           </p>
         </form>
       </div>
-      {{-- {{ dump($result) }} --}}
-      {{-- @if($result->any())
-        <div class="content">
-          <pre>
-            @foreach ($result as $key => $value)
-              {{ $value }}
-            @endforeach
-          </pre>
-        </div>
-      @endif --}}
     </div> <!-- /container -->
   </body>
 </html>
