@@ -15,7 +15,7 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Challenge One</h1>
-        <p>Please upload a pdf file to find out how many words it has</p>
+        <p>Please upload a pdf file to find out how many words are repeated</p>
         <p><small><i>max filesize: 1MB</i></small></p>
 
         <div class="row">
@@ -40,6 +40,16 @@
           </p>
         </form>
       </div>
+      {{ dump($result) }}
+      {{-- @if($result->any())
+        <div class="content">
+          <pre>
+            @foreach ($result as $key => $value)
+              {{ $value }}
+            @endforeach
+          </pre>
+        </div>
+      @endif --}}
     </div> <!-- /container -->
   </body>
 </html>

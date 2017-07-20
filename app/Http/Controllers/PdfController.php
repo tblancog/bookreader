@@ -46,8 +46,9 @@ class PdfController extends Controller
                    min:1|max:1024'
       ]);
       $file = $request->file('file');
-      return $this->repo->handle( $file );
-      // return redirect()->
+      $result = $this->repo->handle( $file );
+      // return redirect('/')->with('result', $result);
+      // return view('index', compact('result'));
     }
 
     /**
