@@ -11,17 +11,10 @@ use  \Spatie\PdfToText\Pdf as ReadPdf;
 class PageTest extends TestCase
 {
     /**
-     * Test page shows "Please upload a pdf file".
+     * Test that a pdf can exist in storage.
      *
      * @return void
      */
-    // public function testShowsUploadFilePage()
-    // {
-    //     $this->visit('/')
-    //         ->see('Please upload a pdf file')
-    //         ->dontSee('Not Found')
-    //         ->dontSee('Error');
-    // }
     public function testAPdfFileExistsInStorage(){
       $dummyFile = storage_path().'/data/flow.pdf';
 
@@ -29,6 +22,10 @@ class PageTest extends TestCase
         file_exists($dummyFile), true
       );
     }
+    /**
+     * Test that a 3rd party plugin can read pdf and extract text
+     * @return [type] [description]
+     */
     public function testPdfFileCanBeReadBy3rdPartyPlugin(){
       $dummyFile = storage_path().'/data/flow.pdf';
       $text = ReadPdf::getText($dummyFile);
