@@ -46,8 +46,8 @@ class PdfController extends Controller
                    min:1|max:1024'
       ]);
       $file = $request->file('file');
-      $this->repo->storeFile( $file );
-      // $this->repo->countWords( $file );
+      return $this->repo->handle( $file );
+      // return redirect()->
     }
 
     /**

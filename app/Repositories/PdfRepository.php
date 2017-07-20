@@ -5,21 +5,34 @@ use \Spatie\PdfToText\Pdf as ReadPdf;
 class PdfRepository{
 
   private $file;
-  private $path;
   private $folder;
+  private $storage;
   private $plainContent;
+
+  public function __construct(){
+    $this->folder = 'pdfs';
+    $this->storage = storage_path().'/app/';
+  }
 
   public function handle($file){
     $this->file = $file;
-    $this->storeFile();
+    $a = $this->storeFile();
     $this->plainContent = $this->getPlainText();
+    return $this->countUniqueValues();
   }
   public function storeFile(){
-    return $path = $this->file->store( $folder );
+    $this->path = $this->file->store( $this->folder );
   }
   public function getPlainText(){
     return ReadPdf::getText(
-      storage_path().'/'.$this->path
+      $this->storage . $this->path
+    );
+  }
+
+  public function countUniqueValues(){
+    $text = strtolower($this->plainContent);
+    return $list_reps = array_count_values(
+      str_word_count($text, 1)
     );
   }
 }
