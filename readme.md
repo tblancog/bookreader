@@ -31,8 +31,9 @@ For browser testing It would be nice to read more and use browser testing with D
 
 
 ## Other challenges faced
-I when i created this fresh Laravel installation phpunit I couldn't execute it, so instead trying to find out the error I downloaded a phpunit .phar to quickly execute tests, it worked.
-It took me a couple of days to acquire and setup a new cloud server, but now its online.
+I when i created this fresh Laravel installation, phpunit I couldn't execute it, so instead trying to find out the error I downloaded a phpunit .phar to quickly execute tests, it worked.
+I had an error with the pdf plugin that I used because the server executed a file: "/usr/bin/pdftotext", I had to set my cloud hosting to install that file so it doesn't break anymore.
+It took me a couple of days to acquire and setup a new cloud server as a domain, but now its online.
 
 ## Download
 Just clone this repository and enter these commands:
